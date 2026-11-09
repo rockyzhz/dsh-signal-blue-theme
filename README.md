@@ -32,6 +32,9 @@ dsh plugin --profile web remove dsh-signal-blue-theme
 
 1. **品牌色阶** `--dsw-static-deepseek-*` 十档全部换成信号蓝色阶。官方别名几乎都是 `var(--dsw-static-deepseek-500)` 这类引用，色阶一换，链接、按钮填充、业务状态色整族自动跟随。
 2. **字面量别名**单独补：纸面、墨色文字、边框、代码块底、侧栏。这些在官方样式表里是硬编码值，改色阶带不动。
+3. **质感层**（额外注入一层 CSS）：圆角从 4–28px 收到 2–12px、卡片阴影换成发丝线、字体换成 Inter 优先的栈、焦点环与当前项标记（`aria-current="page"`）换成信号蓝。
+
+第 1、2 步受 `overrideTokens` 管，第 3 步是插件注入的 `<style>`，卸载时一并移除。
 
 色阶在 OKLCH 空间重建：色相固定 265.9°，明度按档位阶梯排，彩度向两端递减，并做了 sRGB 色域夹取。关键档位实测（WCAG 2.1）：
 

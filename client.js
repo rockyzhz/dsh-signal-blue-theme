@@ -55,13 +55,13 @@ window.__ModuleLoader__.load({
     // ② 字面量别名：纸面、墨色、边框、代码块、侧栏
     Object.assign(TOKENS, {
       // 纸面：底色是暖白纸，卡片留在纯白，于是卡片像压在纸上
-      '--dsw-alias-bg-base': { light: '#fafaf8', dark: '#121110' },
-      '--dsw-alias-bg-layer-1': { light: '#ffffff', dark: '#1c1a17' },
-      '--dsw-alias-bg-layer-2': { light: '#ffffff', dark: '#1c1a17' },
-      '--dsw-alias-bg-layer-3': { light: '#efece5', dark: '#262320' },
-      '--dsw-alias-bg-overlay': { light: '#efece5', dark: '#262320' },
-      '--dsw-alias-bg-module-platform': { light: '#efece5', dark: '#262320' },
-      '--dsw-alias-bg-multi-select': { light: '#efece5', dark: '#262320' },
+      '--dsw-alias-bg-base': { light: '#f7f4ed', dark: '#121110' },
+      '--dsw-alias-bg-layer-1': { light: '#fdfbf7', dark: '#1c1a17' },
+      '--dsw-alias-bg-layer-2': { light: '#fdfbf7', dark: '#1c1a17' },
+      '--dsw-alias-bg-layer-3': { light: '#eae4d8', dark: '#262320' },
+      '--dsw-alias-bg-overlay': { light: '#eae4d8', dark: '#262320' },
+      '--dsw-alias-bg-module-platform': { light: '#eae4d8', dark: '#262320' },
+      '--dsw-alias-bg-multi-select': { light: '#eae4d8', dark: '#262320' },
       '--dsw-alias-bg-skeleton': { light: 'rgba(26, 22, 16, 0.06)', dark: 'rgba(242, 239, 232, 0.08)' },
 
       // 墨色文字：主文墨黑，次级与三级灰各让出一档
@@ -101,13 +101,13 @@ window.__ModuleLoader__.load({
       '--dsw-alias-state-business-tertiary': { light: 'rgba(27, 59, 255, 0.10)', dark: 'rgba(86, 132, 255, 0.14)' },
 
       // 侧栏、菜单、气泡：跟纸面同族，避免蓝色系的中性色混进来
-      '--dsw-specific-sidebar-fill': { light: '#efece5', dark: '#171512' },
+      '--dsw-specific-sidebar-fill': { light: '#eae4d8', dark: '#171512' },
       '--dsw-specific-sidebar-nav-item-active': { light: 'rgba(26, 22, 16, 0.06)', dark: 'rgba(242, 239, 232, 0.06)' },
       '--dsw-specific-sidebar-nav-item-active-accent': { light: 'rgba(27, 59, 255, 0.12)', dark: 'rgba(86, 132, 255, 0.14)' },
       '--dsw-specific-sidebar-nav-item-hover': { light: 'rgba(26, 22, 16, 0.05)', dark: 'rgba(242, 239, 232, 0.05)' },
-      '--dsw-specific-menu': { light: '#ffffff', dark: '#1c1a17' },
+      '--dsw-specific-menu': { light: '#fdfbf7', dark: '#1c1a17' },
       '--dsw-specific-bubble': { light: '#f2f0eb', dark: '#1c1a17' },
-      '--dsw-specific-input-major': { light: '#ffffff', dark: '#1c1a17' },
+      '--dsw-specific-input-major': { light: '#fdfbf7', dark: '#1c1a17' },
       '--dsw-specific-selector': { light: '#f0eee9', dark: '#262320' },
       '--dsw-specific-tip': { light: '#f0eee9', dark: '#262320' },
       '--dsw-alias-interactive-bg-hover': { light: 'rgba(26, 22, 16, 0.06)', dark: 'rgba(242, 239, 232, 0.06)' },
@@ -121,6 +121,58 @@ window.__ModuleLoader__.load({
       '--dsw-alias-scrollbar-hover-l2': { light: 'rgba(26, 22, 16, 0.22)', dark: 'rgba(242, 239, 232, 0.22)' },
     })
 
+    /**
+     * 质感层。圆角、阴影、字体这些是 `:root` 级 token，不在 alias 层，
+     * overrideTokens 够不着，用一层注入样式覆盖。
+     *
+     * 瑞士风的骨架是硬边：圆角收到 2–7px，卡片靠一圈发丝线立起来而不是投阴影，
+     * 字体西文在前、中文在后（和发布页同一套栈）。
+     */
+    const SURFACE_CSS = `
+body {
+  --dsw-radius-xs: 2px;
+  --dsw-radius-sm: 3px;
+  --dsw-radius-md: 5px;
+  --dsw-radius-lg: 7px;
+  --dsw-radius-xl: 9px;
+  --dsw-radius-panel: 12px;
+  --dsw-corner-shape: normal;
+
+  --dsw-shadow-lv1: 0 0 0 1px rgba(26, 22, 16, 0.05);
+  --dsw-shadow-lv2: 0 1px 2px 0 rgba(26, 22, 16, 0.05), 0 0 0 1px rgba(26, 22, 16, 0.05);
+  --dsw-shadow-lv3: 0 2px 8px 0 rgba(26, 22, 16, 0.08), 0 0 0 1px rgba(26, 22, 16, 0.06);
+  --dsw-elevation-panel: 0 0 0 1px var(--dsw-alias-border-l2);
+  --dsw-elevation-prominent: 0 2px 8px 0 rgba(26, 22, 16, 0.08), 0 0 0 1px var(--dsw-alias-border-l2);
+  --dsw-elevation-soft: 0 1px 4px 0 rgba(26, 22, 16, 0.05), 0 0 0 1px var(--dsw-alias-border-l1);
+
+  --dsw-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+
+  /* 焦点环换成信号蓝 */
+  --dsw-focus-ring-color: var(--dsw-alias-state-business-primary);
+}
+
+/* 当前项：左侧一条 3px 信号蓝，呼应发布页里 profile 列表的做法。
+   aria-current 是语义属性，不受样式表哈希类名变动影响。 */
+[aria-current="page"] {
+  box-shadow: inset 3px 0 0 var(--dsw-alias-state-business-primary);
+}
+
+/* 悬停链接走信号蓝 */
+a:hover {
+  color: var(--dsw-alias-link);
+}
+
+body[data-ds-dark-theme] {
+  --dsw-shadow-lv1: 0 0 0 1px rgba(242, 239, 232, 0.06);
+  --dsw-shadow-lv2: 0 1px 2px 0 rgba(0, 0, 0, 0.40), 0 0 0 1px rgba(242, 239, 232, 0.06);
+  --dsw-shadow-lv3: 0 2px 8px 0 rgba(0, 0, 0, 0.50), 0 0 0 1px rgba(242, 239, 232, 0.08);
+  --dsw-elevation-panel: 0 0 0 1px var(--dsw-alias-border-l2);
+  --dsw-elevation-prominent: 0 2px 8px 0 rgba(0, 0, 0, 0.50), 0 0 0 1px var(--dsw-alias-border-l2);
+  --dsw-elevation-soft: 0 1px 4px 0 rgba(0, 0, 0, 0.40), 0 0 0 1px var(--dsw-alias-border-l1);
+}
+`
+
     return {
       inject: ['theme'],
       apply(ctx) {
@@ -131,6 +183,13 @@ window.__ModuleLoader__.load({
         }
         // ctx.effect 持有 disposer：插件卸载或热重载时这一层会被干净移除
         ctx.effect(() => theme.overrideTokens(SOURCE, TOKENS))
+        ctx.effect(() => {
+          const el = document.createElement('style')
+          el.setAttribute('data-dsh-signal-blue', '')
+          el.textContent = SURFACE_CSS
+          document.head.appendChild(el)
+          return () => el.remove()
+        })
       },
     }
   },
