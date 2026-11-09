@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "title": "信号蓝",
+    "subtitle": "给 dsh 的单一强调色方案",
+    "author": "dsh",
+    "date": "2026.11.10",
+    "reading_time": "约 5 分钟",
+    "tags": [
+      "主题",
+      "配色",
+      "瑞士风",
+      "dsh"
+    ],
+    "hero_image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1400&h=600&fit=crop",
+    "lang": null
+  },
+  "upgrades": [
+    {
+      "type": "pullquote",
+      "line": 10,
+      "accent": "一眼之内可读"
+    },
+    {
+      "type": "checklist",
+      "lines": [
+        26,
+        27,
+        28
+      ]
+    },
+    {
+      "type": "embed",
+      "line": 34,
+      "label": "CANDIDATES",
+      "svg": "<svg viewBox=\"0 0 600 182\" role=\"img\" aria-label=\"四个候选强调色：荧光紫蓝、克莱因蓝、电蓝、终端青\">\n  <rect x=\"0\" y=\"20\" width=\"138\" height=\"96\" rx=\"3\" style=\"fill:#7C5CFF\"/>\n  <text x=\"0\" y=\"140\" style=\"font-family:var(--font-sans);font-size:13px;fill:currentColor;opacity:.72\">荧光紫蓝</text>\n  <text x=\"0\" y=\"158\" style=\"font-family:var(--font-mono);font-size:10px;fill:currentColor;opacity:.45\">#7C5CFF</text>\n  <rect x=\"150\" y=\"20\" width=\"138\" height=\"96\" rx=\"3\" style=\"fill:#002FA7\"/>\n  <text x=\"150\" y=\"140\" style=\"font-family:var(--font-sans);font-size:13px;fill:currentColor;opacity:.72\">克莱因蓝</text>\n  <text x=\"150\" y=\"158\" style=\"font-family:var(--font-mono);font-size:10px;fill:currentColor;opacity:.45\">#002FA7</text>\n  <rect x=\"300\" y=\"8\" width=\"138\" height=\"108\" rx=\"3\" style=\"fill:#1B3BFF;stroke:currentColor;stroke-width:2\"/>\n  <text x=\"300\" y=\"140\" style=\"font-family:var(--font-sans);font-size:13px;font-weight:600;fill:var(--accent)\">电蓝</text>\n  <text x=\"300\" y=\"158\" style=\"font-family:var(--font-mono);font-size:10px;fill:currentColor;opacity:.45\">#1B3BFF</text>\n  <rect x=\"450\" y=\"20\" width=\"138\" height=\"96\" rx=\"3\" style=\"fill:#0E7C86\"/>\n  <text x=\"450\" y=\"140\" style=\"font-family:var(--font-sans);font-size:13px;fill:currentColor;opacity:.72\">终端青</text>\n  <text x=\"450\" y=\"158\" style=\"font-family:var(--font-mono);font-size:10px;fill:currentColor;opacity:.45\">#0E7C86</text>\n</svg>"
+    },
+    {
+      "type": "checklist",
+      "lines": [
+        83,
+        84,
+        85,
+        86,
+        87
+      ]
+    },
+    {
+      "type": "embed",
+      "line": 91,
+      "label": "UI",
+      "svg": "<svg viewBox=\"0 0 600 360\" role=\"img\" aria-label=\"dsh Web 界面示意：左侧 profile 列表，右侧运行状态与工具调用\">\n  <rect x=\"0.5\" y=\"0.5\" width=\"599\" height=\"359\" rx=\"10\" style=\"fill:var(--paper);stroke:var(--line)\"/>\n  <path d=\"M150 14V346\" style=\"stroke:var(--line);fill:none\"/>\n\n  <text x=\"14\" y=\"26\" style=\"font-family:var(--font-mono);font-size:8.5px;letter-spacing:.16em;fill:currentColor;opacity:.42\">PROFILES</text>\n\n  <rect x=\"0\" y=\"40\" width=\"3\" height=\"24\" style=\"fill:var(--accent)\"/>\n  <text x=\"18\" y=\"57\" style=\"font-family:var(--font-mono);font-size:11.5px;font-weight:600;fill:var(--accent)\">web</text>\n  <circle cx=\"132\" cy=\"53\" r=\"2.8\" style=\"fill:var(--accent)\"/>\n\n  <text x=\"18\" y=\"89\" style=\"font-family:var(--font-mono);font-size:11.5px;fill:currentColor;opacity:.60\">headless</text>\n  <text x=\"18\" y=\"121\" style=\"font-family:var(--font-mono);font-size:11.5px;fill:currentColor;opacity:.60\">sdk</text>\n  <text x=\"18\" y=\"153\" style=\"font-family:var(--font-mono);font-size:11.5px;fill:currentColor;opacity:.60\">sdk-minimal</text>\n  <text x=\"18\" y=\"185\" style=\"font-family:var(--font-mono);font-size:11.5px;fill:currentColor;opacity:.60\">acp</text>\n\n  <text x=\"14\" y=\"336\" style=\"font-family:var(--font-mono);font-size:8.5px;fill:currentColor;opacity:.38\">2 patches · hmr on</text>\n\n  <text x=\"168\" y=\"26\" style=\"font-family:var(--font-mono);font-size:10.5px;fill:currentColor;opacity:.55\">session 3f9c</text>\n  <circle cx=\"492\" cy=\"22\" r=\"3.2\" style=\"fill:var(--accent)\"/>\n  <text x=\"502\" y=\"26\" style=\"font-family:var(--font-mono);font-size:10px;fill:var(--accent)\">running</text>\n  <path d=\"M150 44H594\" style=\"stroke:var(--line);fill:none\"/>\n\n  <text x=\"168\" y=\"68\" style=\"font-family:var(--font-mono);font-size:8.5px;letter-spacing:.14em;fill:currentColor;opacity:.40\">YOU</text>\n  <text x=\"168\" y=\"88\" style=\"font-family:var(--font-sans);font-size:13px;fill:currentColor\">加一个 memory 插件，然后跑测试。</text>\n\n  <text x=\"168\" y=\"122\" style=\"font-family:var(--font-mono);font-size:8.5px;letter-spacing:.14em;fill:currentColor;opacity:.40\">DSH</text>\n\n  <rect x=\"168\" y=\"132\" width=\"406\" height=\"40\" rx=\"5\" style=\"fill:var(--paper-2)\"/>\n  <rect x=\"168\" y=\"132\" width=\"3\" height=\"40\" style=\"fill:var(--accent)\"/>\n  <text x=\"182\" y=\"150\" style=\"font-family:var(--font-mono);font-size:10.5px;fill:currentColor\">dsh plugin --profile web add dsh-memory</text>\n  <text x=\"182\" y=\"165\" style=\"font-family:var(--font-mono);font-size:8.5px;fill:currentColor;opacity:.45\">ok · 3.2s</text>\n\n  <rect x=\"168\" y=\"180\" width=\"406\" height=\"40\" rx=\"5\" style=\"fill:var(--paper-2)\"/>\n  <rect x=\"168\" y=\"180\" width=\"3\" height=\"40\" style=\"fill:var(--line-strong)\"/>\n  <text x=\"182\" y=\"198\" style=\"font-family:var(--font-mono);font-size:10.5px;fill:currentColor\">pnpm test</text>\n  <text x=\"182\" y=\"213\" style=\"font-family:var(--font-mono);font-size:8.5px;fill:currentColor;opacity:.45\">128 passing · 0 failing</text>\n\n  <text x=\"168\" y=\"250\" style=\"font-family:var(--font-sans);font-size:13px;fill:currentColor\">装好了，测试全绿。</text>\n\n  <rect x=\"168\" y=\"286\" width=\"406\" height=\"44\" rx=\"7\" style=\"fill:none;stroke:var(--line)\"/>\n  <text x=\"184\" y=\"313\" style=\"font-family:var(--font-mono);font-size:10px;fill:currentColor;opacity:.38\">继续输入，或按 ⌘K 换 profile</text>\n</svg>",
+      "caption": "界面示意：侧栏 profile、运行状态点、工具调用行。颜色全部取自变量。"
+    },
+    {
+      "type": "highlight",
+      "line": 113,
+      "label": "结论"
+    }
+  ]
+}
