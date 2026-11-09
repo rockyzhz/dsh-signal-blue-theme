@@ -6,6 +6,20 @@
 
 这个仓库有两种形态：**一个可安装的 DSH 主题插件**，和**一页讲这套配色的发布页**。
 
+## 效果
+
+浅色（1440 宽，侧栏已折叠）：
+
+![浅色模式](assets/preview-light.png)
+
+深色（同一套 token，`data-ds-dark-theme` 下走另一组值）：
+
+![深色模式](assets/preview-dark.png)
+
+侧栏当前项是 3px 直角蓝竖条 + 蓝字，和发布页里那张界面示意同一个做法：
+
+<img src="assets/preview-sidebar.png" alt="侧栏当前项" width="300">
+
 ## 安装到 DSH
 
 ```sh
