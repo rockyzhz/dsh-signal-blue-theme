@@ -58,10 +58,10 @@ window.__ModuleLoader__.load({
       '--dsw-alias-bg-base': { light: '#f7f4ed', dark: '#121110' },
       '--dsw-alias-bg-layer-1': { light: '#fdfbf7', dark: '#1c1a17' },
       '--dsw-alias-bg-layer-2': { light: '#fdfbf7', dark: '#1c1a17' },
-      '--dsw-alias-bg-layer-3': { light: '#eae4d8', dark: '#262320' },
-      '--dsw-alias-bg-overlay': { light: '#eae4d8', dark: '#262320' },
-      '--dsw-alias-bg-module-platform': { light: '#eae4d8', dark: '#262320' },
-      '--dsw-alias-bg-multi-select': { light: '#eae4d8', dark: '#262320' },
+      '--dsw-alias-bg-layer-3': { light: '#efe9dd', dark: '#262320' },
+      '--dsw-alias-bg-overlay': { light: '#efe9dd', dark: '#262320' },
+      '--dsw-alias-bg-module-platform': { light: '#efe9dd', dark: '#262320' },
+      '--dsw-alias-bg-multi-select': { light: '#efe9dd', dark: '#262320' },
       '--dsw-alias-bg-skeleton': { light: 'rgba(26, 22, 16, 0.06)', dark: 'rgba(242, 239, 232, 0.08)' },
 
       // 墨色文字：主文墨黑，次级与三级灰各让出一档
@@ -101,7 +101,7 @@ window.__ModuleLoader__.load({
       '--dsw-alias-state-business-tertiary': { light: 'rgba(27, 59, 255, 0.10)', dark: 'rgba(86, 132, 255, 0.14)' },
 
       // 侧栏、菜单、气泡：跟纸面同族，避免蓝色系的中性色混进来
-      '--dsw-specific-sidebar-fill': { light: '#eae4d8', dark: '#171512' },
+      '--dsw-specific-sidebar-fill': { light: '#f4efe6', dark: '#171512' },
       '--dsw-specific-sidebar-nav-item-active': { light: 'rgba(26, 22, 16, 0.06)', dark: 'rgba(242, 239, 232, 0.06)' },
       '--dsw-specific-sidebar-nav-item-active-accent': { light: 'rgba(27, 59, 255, 0.12)', dark: 'rgba(86, 132, 255, 0.14)' },
       '--dsw-specific-sidebar-nav-item-hover': { light: 'rgba(26, 22, 16, 0.05)', dark: 'rgba(242, 239, 232, 0.05)' },
@@ -152,10 +152,14 @@ body {
   --dsw-focus-ring-color: var(--dsw-alias-state-business-primary);
 }
 
-/* 当前项：左侧一条 3px 信号蓝，呼应发布页里 profile 列表的做法。
-   aria-current 是语义属性，不受样式表哈希类名变动影响。 */
-[aria-current="page"] {
-  box-shadow: inset 3px 0 0 var(--dsw-alias-state-business-primary);
+/* 当前项：对照发布页那张 SVG —— 3px 直角竖条 + 蓝字，没有灰底胶囊。
+   box-shadow: inset 会跟着元素自身的 border-radius 走，所以必须先把圆角归零，
+   否则竖条两端会变成圆的，跟设计稿的 rect 对不上。 */
+nav [aria-current="page"] {
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--dsw-alias-state-business-primary) !important;
+  box-shadow: inset 3px 0 0 var(--dsw-alias-state-business-primary) !important;
 }
 
 /* 悬停链接走信号蓝 */
