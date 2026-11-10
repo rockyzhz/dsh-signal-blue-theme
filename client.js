@@ -49,76 +49,81 @@ window.__ModuleLoader__.load({
 
     // ① 品牌色阶：link / 按钮 / 业务状态色整族跟随
     for (const [step, hex] of Object.entries(SCALE)) {
-      TOKENS[`--dsw-static-deepseek-${step}`] = { light: hex, dark: hex }
+      // 深色模式的链接取自 400 档；深蓝底会把 #5684ff 压到 4.6:1 以下，
+      // 所以只有这一档在深色下单独提亮，其余档两模式共用。
+      TOKENS[`--dsw-static-deepseek-${step}`] = {
+        light: hex,
+        dark: step === '400' ? '#7aa3ff' : hex,
+      }
     }
 
     // ② 字面量别名：纸面、墨色、边框、代码块、侧栏
     Object.assign(TOKENS, {
       // 纸面：底色是暖白纸，卡片留在纯白，于是卡片像压在纸上
-      '--dsw-alias-bg-base': { light: '#f7f4ed', dark: '#121110' },
-      '--dsw-alias-bg-layer-1': { light: '#fdfbf7', dark: '#1c1a17' },
-      '--dsw-alias-bg-layer-2': { light: '#fdfbf7', dark: '#1c1a17' },
-      '--dsw-alias-bg-layer-3': { light: '#efe9dd', dark: '#262320' },
-      '--dsw-alias-bg-overlay': { light: '#efe9dd', dark: '#262320' },
-      '--dsw-alias-bg-module-platform': { light: '#efe9dd', dark: '#262320' },
-      '--dsw-alias-bg-multi-select': { light: '#efe9dd', dark: '#262320' },
-      '--dsw-alias-bg-skeleton': { light: 'rgba(26, 22, 16, 0.06)', dark: 'rgba(242, 239, 232, 0.08)' },
+      '--dsw-alias-bg-base': { light: '#f7f4ed', dark: '#0f1a35' },
+      '--dsw-alias-bg-layer-1': { light: '#fdfbf7', dark: '#15213f' },
+      '--dsw-alias-bg-layer-2': { light: '#fdfbf7', dark: '#15213f' },
+      '--dsw-alias-bg-layer-3': { light: '#efe9dd', dark: '#1e2b4b' },
+      '--dsw-alias-bg-overlay': { light: '#efe9dd', dark: '#1e2b4b' },
+      '--dsw-alias-bg-module-platform': { light: '#efe9dd', dark: '#1e2b4b' },
+      '--dsw-alias-bg-multi-select': { light: '#efe9dd', dark: '#1e2b4b' },
+      '--dsw-alias-bg-skeleton': { light: 'rgba(26, 22, 16, 0.06)', dark: 'rgba(232, 236, 248, 0.08)' },
 
       // 墨色文字：主文墨黑，次级与三级灰各让出一档
-      '--dsw-alias-label-primary': { light: '#0a0a0a', dark: '#f2efe8' },
-      '--dsw-alias-label-primary-bluish': { light: '#0a0a0a', dark: '#f2efe8' },
-      '--dsw-alias-label-primary-dimmed': { light: '#0a0a0a', dark: '#f2efe8' },
-      '--dsw-alias-label-secondary': { light: '#4f4f4f', dark: '#b5afa3' },
-      '--dsw-alias-label-tertiary': { light: '#6e6e6e', dark: '#857f73' },
-      '--dsw-alias-label-caption': { light: '#6e6e6e', dark: '#857f73' },
-      '--dsw-alias-label-dimmed': { light: 'rgba(10, 10, 10, 0.45)', dark: 'rgba(242, 239, 232, 0.45)' },
+      '--dsw-alias-label-primary': { light: '#0a0a0a', dark: '#e8ecf8' },
+      '--dsw-alias-label-primary-bluish': { light: '#0a0a0a', dark: '#e8ecf8' },
+      '--dsw-alias-label-primary-dimmed': { light: '#0a0a0a', dark: '#e8ecf8' },
+      '--dsw-alias-label-secondary': { light: '#4f4f4f', dark: '#a8b0cc' },
+      '--dsw-alias-label-tertiary': { light: '#6e6e6e', dark: '#7c86a8' },
+      '--dsw-alias-label-caption': { light: '#6e6e6e', dark: '#7c86a8' },
+      '--dsw-alias-label-dimmed': { light: 'rgba(10, 10, 10, 0.45)', dark: 'rgba(232, 236, 248, 0.45)' },
 
       // 品牌黑：主按钮与强调文字仍是墨色，蓝色只做标记
-      '--dsw-alias-brand-primary': { light: '#0a0a0a', dark: '#f2efe8' },
-      '--dsw-alias-brand-primary-invert': { light: '#0a0a0a', dark: '#f2efe8' },
-      '--dsw-alias-brand-text': { light: '#0a0a0a', dark: '#f2efe8' },
-      '--dsw-alias-button-primary-fill': { light: '#0a0a0a', dark: '#f2efe8' },
-      '--dsw-alias-button-primary-hover': { light: '#262626', dark: '#dcd7cc' },
+      '--dsw-alias-brand-primary': { light: '#0a0a0a', dark: '#e8ecf8' },
+      '--dsw-alias-brand-primary-invert': { light: '#0a0a0a', dark: '#e8ecf8' },
+      '--dsw-alias-brand-text': { light: '#0a0a0a', dark: '#e8ecf8' },
+      '--dsw-alias-button-primary-fill': { light: '#0a0a0a', dark: '#e8ecf8' },
+      '--dsw-alias-button-primary-hover': { light: '#262626', dark: '#d3daee' },
       '--dsw-alias-button-info-fill': { light: '#1b3bff', dark: '#1b3bff' },
       '--dsw-alias-button-info-hover': { light: '#1428e1', dark: '#3564ff' },
 
       // 发丝线：暖灰，不用纯黑半透明，否则暖纸底上会发脏
-      '--dsw-alias-border-l1': { light: 'rgba(26, 22, 16, 0.08)', dark: 'rgba(242, 239, 232, 0.08)' },
-      '--dsw-alias-border-l2': { light: 'rgba(26, 22, 16, 0.12)', dark: 'rgba(242, 239, 232, 0.12)' },
-      '--dsw-alias-border-l2-darkmode-thin': { light: 'rgba(26, 22, 16, 0.12)', dark: 'rgba(242, 239, 232, 0.08)' },
-      '--dsw-alias-border-l3': { light: 'rgba(26, 22, 16, 0.18)', dark: 'rgba(242, 239, 232, 0.18)' },
-      '--dsw-alias-border-l4': { light: 'rgba(26, 22, 16, 0.26)', dark: 'rgba(242, 239, 232, 0.26)' },
+      '--dsw-alias-border-l1': { light: 'rgba(26, 22, 16, 0.08)', dark: 'rgba(232, 236, 248, 0.08)' },
+      '--dsw-alias-border-l2': { light: 'rgba(26, 22, 16, 0.12)', dark: 'rgba(232, 236, 248, 0.12)' },
+      '--dsw-alias-border-l2-darkmode-thin': { light: 'rgba(26, 22, 16, 0.12)', dark: 'rgba(232, 236, 248, 0.08)' },
+      '--dsw-alias-border-l3': { light: 'rgba(26, 22, 16, 0.18)', dark: 'rgba(232, 236, 248, 0.18)' },
+      '--dsw-alias-border-l4': { light: 'rgba(26, 22, 16, 0.26)', dark: 'rgba(232, 236, 248, 0.26)' },
 
       // 代码块：比纸面再沉一档，仍属同一族暖灰
-      '--dsw-alias-markdown-code-block': { light: '#f2f0eb', dark: '#0c0b0a' },
-      '--dsw-alias-markdown-code-block-banner': { light: '#e9e6df', dark: '#151311' },
-      '--dsw-alias-markdown-inline-code': { light: '#f2f0eb', dark: '#0c0b0a' },
-      '--dsw-alias-markdown-code-segment-selected': { light: '#e9e6df', dark: '#151311' },
-      '--dsw-alias-markdown-code-segment-unselected': { light: '#f2f0eb', dark: '#0c0b0a' },
+      '--dsw-alias-markdown-code-block': { light: '#f2f0eb', dark: '#0a132b' },
+      '--dsw-alias-markdown-code-block-banner': { light: '#e9e6df', dark: '#121c38' },
+      '--dsw-alias-markdown-inline-code': { light: '#f2f0eb', dark: '#0a132b' },
+      '--dsw-alias-markdown-code-segment-selected': { light: '#e9e6df', dark: '#121c38' },
+      '--dsw-alias-markdown-code-segment-unselected': { light: '#f2f0eb', dark: '#0a132b' },
 
       // 业务状态色：这里就是信号蓝出现的地方
-      '--dsw-alias-state-business-primary': { light: '#1b3bff', dark: '#5684ff' },
-      '--dsw-alias-state-business-tertiary': { light: 'rgba(27, 59, 255, 0.10)', dark: 'rgba(86, 132, 255, 0.14)' },
+      '--dsw-alias-state-business-primary': { light: '#1b3bff', dark: '#7aa3ff' },
+      '--dsw-alias-state-business-tertiary': { light: 'rgba(27, 59, 255, 0.10)', dark: 'rgba(122, 163, 255, 0.14)' },
 
       // 侧栏、菜单、气泡：跟纸面同族，避免蓝色系的中性色混进来
-      '--dsw-specific-sidebar-fill': { light: '#f4efe6', dark: '#171512' },
-      '--dsw-specific-sidebar-nav-item-active': { light: 'rgba(26, 22, 16, 0.06)', dark: 'rgba(242, 239, 232, 0.06)' },
-      '--dsw-specific-sidebar-nav-item-active-accent': { light: 'rgba(27, 59, 255, 0.12)', dark: 'rgba(86, 132, 255, 0.14)' },
-      '--dsw-specific-sidebar-nav-item-hover': { light: 'rgba(26, 22, 16, 0.05)', dark: 'rgba(242, 239, 232, 0.05)' },
-      '--dsw-specific-menu': { light: '#fdfbf7', dark: '#1c1a17' },
-      '--dsw-specific-bubble': { light: '#f2f0eb', dark: '#1c1a17' },
-      '--dsw-specific-input-major': { light: '#fdfbf7', dark: '#1c1a17' },
-      '--dsw-specific-selector': { light: '#f0eee9', dark: '#262320' },
-      '--dsw-specific-tip': { light: '#f0eee9', dark: '#262320' },
-      '--dsw-alias-interactive-bg-hover': { light: 'rgba(26, 22, 16, 0.06)', dark: 'rgba(242, 239, 232, 0.06)' },
-      '--dsw-alias-interactive-bg-active': { light: 'rgba(26, 22, 16, 0.10)', dark: 'rgba(242, 239, 232, 0.10)' },
-      '--dsw-alias-interactive-bg-hover-accent': { light: 'rgba(27, 59, 255, 0.10)', dark: 'rgba(86, 132, 255, 0.12)' },
+      '--dsw-specific-sidebar-fill': { light: '#f4efe6', dark: '#0b142d' },
+      '--dsw-specific-sidebar-nav-item-active': { light: 'rgba(26, 22, 16, 0.06)', dark: 'rgba(232, 236, 248, 0.06)' },
+      '--dsw-specific-sidebar-nav-item-active-accent': { light: 'rgba(27, 59, 255, 0.12)', dark: 'rgba(122, 163, 255, 0.14)' },
+      '--dsw-specific-sidebar-nav-item-hover': { light: 'rgba(26, 22, 16, 0.05)', dark: 'rgba(232, 236, 248, 0.05)' },
+      '--dsw-specific-menu': { light: '#fdfbf7', dark: '#15213f' },
+      '--dsw-specific-bubble': { light: '#f2f0eb', dark: '#15213f' },
+      '--dsw-specific-input-major': { light: '#fdfbf7', dark: '#15213f' },
+      '--dsw-specific-selector': { light: '#f0eee9', dark: '#1e2b4b' },
+      '--dsw-specific-tip': { light: '#f0eee9', dark: '#1e2b4b' },
+      '--dsw-alias-interactive-bg-hover': { light: 'rgba(26, 22, 16, 0.06)', dark: 'rgba(232, 236, 248, 0.06)' },
+      '--dsw-alias-interactive-bg-active': { light: 'rgba(26, 22, 16, 0.10)', dark: 'rgba(232, 236, 248, 0.10)' },
+      '--dsw-alias-interactive-bg-hover-accent': { light: 'rgba(27, 59, 255, 0.10)', dark: 'rgba(122, 163, 255, 0.12)' },
 
       // 滚动条：纸面里的低对比灰
-      '--dsw-alias-scrollbar-bg-l1': { light: 'rgba(26, 22, 16, 0.12)', dark: 'rgba(242, 239, 232, 0.12)' },
-      '--dsw-alias-scrollbar-bg-l2': { light: 'rgba(26, 22, 16, 0.12)', dark: 'rgba(242, 239, 232, 0.12)' },
-      '--dsw-alias-scrollbar-hover-l1': { light: 'rgba(26, 22, 16, 0.22)', dark: 'rgba(242, 239, 232, 0.22)' },
-      '--dsw-alias-scrollbar-hover-l2': { light: 'rgba(26, 22, 16, 0.22)', dark: 'rgba(242, 239, 232, 0.22)' },
+      '--dsw-alias-scrollbar-bg-l1': { light: 'rgba(26, 22, 16, 0.12)', dark: 'rgba(232, 236, 248, 0.12)' },
+      '--dsw-alias-scrollbar-bg-l2': { light: 'rgba(26, 22, 16, 0.12)', dark: 'rgba(232, 236, 248, 0.12)' },
+      '--dsw-alias-scrollbar-hover-l1': { light: 'rgba(26, 22, 16, 0.22)', dark: 'rgba(232, 236, 248, 0.22)' },
+      '--dsw-alias-scrollbar-hover-l2': { light: 'rgba(26, 22, 16, 0.22)', dark: 'rgba(232, 236, 248, 0.22)' },
     })
 
     /**
@@ -168,9 +173,9 @@ a:hover {
 }
 
 body[data-ds-dark-theme] {
-  --dsw-shadow-lv1: 0 0 0 1px rgba(242, 239, 232, 0.06);
-  --dsw-shadow-lv2: 0 1px 2px 0 rgba(0, 0, 0, 0.40), 0 0 0 1px rgba(242, 239, 232, 0.06);
-  --dsw-shadow-lv3: 0 2px 8px 0 rgba(0, 0, 0, 0.50), 0 0 0 1px rgba(242, 239, 232, 0.08);
+  --dsw-shadow-lv1: 0 0 0 1px rgba(200, 212, 255, 0.06);
+  --dsw-shadow-lv2: 0 1px 2px 0 rgba(0, 0, 0, 0.40), 0 0 0 1px rgba(200, 212, 255, 0.06);
+  --dsw-shadow-lv3: 0 2px 8px 0 rgba(0, 0, 0, 0.50), 0 0 0 1px rgba(200, 212, 255, 0.08);
   --dsw-elevation-panel: 0 0 0 1px var(--dsw-alias-border-l2);
   --dsw-elevation-prominent: 0 2px 8px 0 rgba(0, 0, 0, 0.50), 0 0 0 1px var(--dsw-alias-border-l2);
   --dsw-elevation-soft: 0 1px 4px 0 rgba(0, 0, 0, 0.40), 0 0 0 1px var(--dsw-alias-border-l1);
