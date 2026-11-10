@@ -1,3 +1,5 @@
+[English](README.en.md) | 中文
+
 # dsh-signal-blue-theme
 
 给 [dsh](https://github.com/deepseek-ai/deepseek-harness) 设计的一套瑞士风配色主题，代号**信号蓝**（Signal Blue，`#1B3BFF`）。
@@ -84,6 +86,8 @@ dsh plugin --profile web remove dsh-signal-blue-theme
 | `make-annotations.mjs` | 标注文件生成器，含两张内联 SVG 图 |
 | `annotations.json` | 渲染用的标注（由上面的脚本生成） |
 | `build.mjs` | 一条命令重建发布页 |
+| `README.en.md` | 英文版说明 |
+| `CHANGELOG.md` | 版本与色调记录 |
 
 ## 色板
 

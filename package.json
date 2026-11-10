@@ -21,7 +21,10 @@
     "dsh-signal-blue.html",
     "dsh-signal-blue.png",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "README.en.md",
+    "CHANGELOG.md",
+    "assets"
   ],
   "dsh": {
     "bundle": {
