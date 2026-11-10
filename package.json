@@ -24,7 +24,8 @@
     "LICENSE",
     "README.en.md",
     "CHANGELOG.md",
-    "assets"
+    "assets",
+    "screenshots.json"
   ],
   "dsh": {
     "bundle": {
