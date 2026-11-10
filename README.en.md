@@ -12,15 +12,15 @@ This repository is two things at once: **an installable DSH theme plugin**, and 
 
 Light — cold paper with a pale blue sidebar (1440 wide, sidebar collapsed):
 
-![Light mode](assets/preview-light.png)
+![Light mode](assets/en/preview-light.png)
 
 Dark sits on a **deep navy night**, not black. The base `#0F1A35` and the accent share the same hue (265.9°), so the dark build is still Signal Blue — just after sunset. Links brighten to `#7AA3FF` to stay above 4.5:1 on that base.
 
-![Dark mode](assets/preview-dark.png)
+![Dark mode](assets/en/preview-dark.png)
 
 The current sidebar item is marked by a 3px square blue bar and blue text — the same treatment as the interface sketch on the spec page:
 
-<img src="assets/preview-sidebar.png" alt="Sidebar current item" width="300">
+<img src="assets/en/preview-sidebar.png" alt="Sidebar current item" width="300">
 
 ## Versions
 

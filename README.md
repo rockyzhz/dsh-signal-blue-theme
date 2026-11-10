@@ -12,15 +12,15 @@
 
 浅色是冷白纸 + 淡蓝侧栏（1440 宽，侧栏已折叠）：
 
-![浅色模式](assets/preview-light.png)
+![浅色模式](assets/zh/preview-light.png)
 
 深色走**深蓝夜底**而不是黑。底色 `#0F1A35` 和强调色落在同一个色相（265.9°）上，所以深色版仍然「是信号蓝」，只是天黑了；链接提亮到 `#7AA3FF`，保证在深蓝底上仍过 4.5:1。
 
-![深色模式](assets/preview-dark.png)
+![深色模式](assets/zh/preview-dark.png)
 
 侧栏当前项是 3px 直角蓝竖条 + 蓝字，和发布页里那张界面示意同一个做法：
 
-<img src="assets/preview-sidebar.png" alt="侧栏当前项" width="300">
+<img src="assets/zh/preview-sidebar.png" alt="侧栏当前项" width="300">
 
 ## 版本
 
