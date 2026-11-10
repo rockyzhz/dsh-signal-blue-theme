@@ -1,6 +1,6 @@
 {
   "name": "dsh-signal-blue-theme",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "信号蓝：给 DeepSeek Harness Web 界面的瑞士风配色主题（单一强调色 #1B3BFF，暖白纸底，墨色文字）",
   "type": "module",
   "main": "index.js",
