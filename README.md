@@ -20,6 +20,15 @@
 
 <img src="assets/preview-sidebar.png" alt="侧栏当前项" width="300">
 
+## 版本
+
+| 标签 | 代号 | 浅色 | 深色 |
+|---|---|---|---|
+| `v1.1.0` | 冷白版 Cool Paper | `#F6F8FD` / 侧栏 `#E8EDF8` | `#0F1A35` |
+| `v1.0.0` | 暖纸版 Warm Paper | `#F7F4ED` / 侧栏 `#F4EFE6` | `#0F1A35` |
+
+细节见 [CHANGELOG.md](CHANGELOG.md)。
+
 ## 安装到 DSH
 
 ```sh
